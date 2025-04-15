@@ -1,16 +1,20 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { ChevronLeft, ChevronRight, Rocket } from 'lucide-react';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.3, duration: 0.6 }
-  })
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
 };
 
 const sections = [
+  {
+    title: '🚀 Meme Heroes',
+    content: 'Telegram-first GameFi platform turning Meme Tokens into fun and engagement.',
+    cover: true
+  },
   {
     title: '🏢 Project Name',
     content: 'Meme Heroes'
@@ -59,30 +63,57 @@ By working with meme token creators, we bring real utility to their tokens, give
   {
     title: '📲 Publishing Plans',
     content: 'Strong early results. Ready to expand to App Store and Google Play.'
+  },
+  {
+    title: '🎯 Call to Action',
+    content: 'Join us to bring meme tokens to life through gameplay. Let’s build the future of casual crypto games together! Contact us to partner or invest.',
+    cta: true
   }
 ];
 
 export default function PitchDeck() {
+  const [index, setIndex] = useState(0);
+  const current = sections[index];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0d0d0d] to-[#1f1f1f] text-white p-6 grid gap-6">
-      <h1 className="text-4xl font-bold text-center">🚀 Meme Heroes Pitch Deck</h1>
-      {sections.map((section, i) => (
-        <motion.div
-          key={i}
-          custom={i}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeIn}
+    <div className="min-h-screen bg-gradient-to-br from-[#0d0d0d] to-[#1f1f1f] text-white flex flex-col items-center justify-center px-4 py-6">
+      <motion.div
+        key={index}
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
+        className="w-full max-w-md"
+      >
+        <Card className="bg-[#2a2a2a] text-white shadow-2xl border border-gray-700 rounded-2xl">
+          <CardContent className="p-6 flex flex-col items-center text-center">
+            {current.cover && <img src="/logo.png" alt="Meme Heroes Logo" className="w-24 h-24 mb-4" />}
+            <h2 className="text-2xl font-bold mb-4">{current.title}</h2>
+            <p className="text-base leading-relaxed whitespace-pre-line">{current.content}</p>
+            {current.cta && (
+              <Button className="mt-6 bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-6 py-2 rounded-xl text-lg shadow-lg">
+                <Rocket className="inline-block mr-2" /> Contact Us
+              </Button>
+            )}
+          </CardContent>
+        </Card>
+      </motion.div>
+
+      <div className="mt-6 flex justify-between w-full max-w-md px-6">
+        <Button
+          variant="ghost"
+          onClick={() => setIndex((prev) => Math.max(prev - 1, 0))}
+          disabled={index === 0}
         >
-          <Card className="bg-[#2a2a2a] text-white shadow-xl border border-gray-700 rounded-2xl">
-            <CardContent className="p-6">
-              <h2 className="text-xl font-semibold mb-2">{section.title}</h2>
-              <p className="text-base whitespace-pre-line leading-relaxed">{section.content}</p>
-            </CardContent>
-          </Card>
-        </motion.div>
-      ))}
+          <ChevronLeft /> Prev
+        </Button>
+        <Button
+          variant="ghost"
+          onClick={() => setIndex((prev) => Math.min(prev + 1, sections.length - 1))}
+          disabled={index === sections.length - 1}
+        >
+          Next <ChevronRight />
+        </Button>
+      </div>
     </div>
   );
 }
