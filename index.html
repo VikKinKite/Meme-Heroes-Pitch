@@ -1,119 +1,129 @@
-import { motion } from 'framer-motion';
-import { useState } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { ChevronLeft, ChevronRight, Rocket } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meme Heroes | Telegram Gaming Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+    }
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-};
+    .container {
+      max-width: 800px;
+      width: 100%;
+    }
 
-const sections = [
-  {
-    title: '🚀 Meme Heroes',
-    content: 'Telegram-first GameFi platform turning Meme Tokens into fun and engagement.',
-    cover: true
-  },
-  {
-    title: '🏢 Project Name',
-    content: 'Meme Heroes'
-  },
-  {
-    title: '📱 Telegram Mini-App',
-    content: '@Meme_Heroes_bot'
-  },
-  {
-    title: '⚡️ One-Liner',
-    content: 'A Telegram-first gaming platform turning Meme Tokens into fun and engagement.'
-  },
-  {
-    title: '🕹 About the Project',
-    content: `Meme Heroes is a fast-growing gaming platform built inside Telegram. We combine the viral power of Meme Tokens with addictive mini-games and real crypto rewards.
+    .block {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 20px 0;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeInUp 0.8s forwards;
+    }
 
-Players compete in quick, skill-based challenges for prizes, while meme token projects get a fresh, gamified way to grow and retain their communities.
+    .block:nth-child(even) {
+      animation-delay: 0.3s;
+    }
 
-By working with meme token creators, we bring real utility to their tokens, give holders a reason to stay and play, and create new revenue channels.`
-  },
-  {
-    title: '🌍 Target Markets',
-    content: 'Europe (Ukraine, Russia), Americas (USA, Brazil, Mexico), Asia (India, Indonesia, Vietnam)'
-  },
-  {
-    title: '👥 Team',
-    content: `• Vitalii Korshunov – CEO, 20+ years in gaming, iGaming, and gamification.
-• Alex Demchenko – CTO, 20+ years in digital and Web3/GameFi tech.
-• Viktoria Pieshaia – CMO, 15+ years in gaming/Web3 branding and community.`
-  },
-  {
-    title: '💸 Monetization',
-    content: 'In-app purchases, Subscriptions, Ads, Token utility & distributions.'
-  },
-  {
-    title: '📈 Early Traction',
-    content: `14-day test (0 marketing): 13,974 users
-• 76% converted to active players (10,647)
-• 16% in-app purchase conversion (1,714 paying users)
-• Day 1 Retention: 32.1%, Day 14: 17.3%`
-  },
-  {
-    title: '💰 Funding Goal',
-    content: 'Seeking $200,000 USDT to scale partnerships, grow user base, add games, polish UX, and launch multiplayer + social features.'
-  },
-  {
-    title: '📲 Publishing Plans',
-    content: 'Strong early results. Ready to expand to App Store and Google Play.'
-  },
-  {
-    title: '🎯 Call to Action',
-    content: 'Join us to bring meme tokens to life through gameplay. Let’s build the future of casual crypto games together! Contact us to partner or invest.',
-    cta: true
-  }
-];
+    .block:nth-child(odd) {
+      animation-delay: 0.6s;
+    }
 
-export default function PitchDeck() {
-  const [index, setIndex] = useState(0);
-  const current = sections[index];
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0d0d0d] to-[#1f1f1f] text-white flex flex-col items-center justify-center px-4 py-6">
-      <motion.div
-        key={index}
-        initial="hidden"
-        animate="visible"
-        variants={fadeIn}
-        className="w-full max-w-md"
-      >
-        <Card className="bg-[#2a2a2a] text-white shadow-2xl border border-gray-700 rounded-2xl">
-          <CardContent className="p-6 flex flex-col items-center text-center">
-            {current.cover && <img src="/logo.png" alt="Meme Heroes Logo" className="w-24 h-24 mb-4" />}
-            <h2 className="text-2xl font-bold mb-4">{current.title}</h2>
-            <p className="text-base leading-relaxed whitespace-pre-line">{current.content}</p>
-            {current.cta && (
-              <Button className="mt-6 bg-yellow-400 hover:bg-yellow-300 text-black font-bold px-6 py-2 rounded-xl text-lg shadow-lg">
-                <Rocket className="inline-block mr-2" /> Contact Us
-              </Button>
-            )}
-          </CardContent>
-        </Card>
-      </motion.div>
+    h1, h2 {
+      margin-top: 0;
+    }
 
-      <div className="mt-6 flex justify-between w-full max-w-md px-6">
-        <Button
-          variant="ghost"
-          onClick={() => setIndex((prev) => Math.max(prev - 1, 0))}
-          disabled={index === 0}
-        >
-          <ChevronLeft /> Prev
-        </Button>
-        <Button
-          variant="ghost"
-          onClick={() => setIndex((prev) => Math.min(prev + 1, sections.length - 1))}
-          disabled={index === sections.length - 1}
-        >
-          Next <ChevronRight />
-        </Button>
-      </div>
+    a.button {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 10px;
+      background: #29abe2;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    a.button:hover {
+      background: #208cbe;
+    }
+
+    .button svg {
+      margin-right: 8px;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      font-family: inherit;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="block">
+      <h1>Meme Heroes</h1>
+      <p>A Telegram-first gaming platform turning Meme Tokens into fun and engagement.</p>
+      <a class="button" href="https://t.me/Meme_Heroes_bot" target="_blank">
+        <svg height="20" width="20" viewBox="0 0 24 24" fill="white">
+          <path d="M9.999 15.197l-.39 4.633c.557 0 .798-.241 1.096-.529l2.625-2.497 5.437 3.97c1 .558 1.711.263 1.964-.928l3.557-16.663c.357-1.637-.588-2.275-1.612-1.896L1.364 9.44c-1.591.619-1.57 1.506-.27 1.905l5.804 1.807L18.428 6.44c.629-.418 1.198-.186.73.232"/>
+        </svg>
+        Try the Bot
+      </a>
     </div>
-  );
-}
+
+    <div class="block">
+      <h2>What is Meme Heroes?</h2>
+      <p>Meme Heroes is a Telegram mini-app that blends Meme Tokens with addictive mini-games and crypto rewards. We work directly with meme token communities, giving them utility, retention, and monetization.</p>
+    </div>
+
+    <div class="block">
+      <h2>Traction</h2>
+      <pre>In just 14 days, without marketing:
+- 13,974 users
+- 76% became active players
+- 16% conversion to purchases
+- Day 1 retention: 32.1%
+- Day 14 retention: 17.3%</pre>
+    </div>
+
+    <div class="block">
+      <h2>Monetization</h2>
+      <p>We monetize through in-app purchases, subscriptions, ads, and token distribution models.</p>
+    </div>
+
+    <div class="block">
+      <h2>Funding</h2>
+      <p>We are raising $200k USDT to launch multiplayer modes, grow our community, and expand to the App Store and Google Play.</p>
+    </div>
+
+    <div class="block">
+      <h2>Team</h2>
+      <pre>Vitalii Korshunov – CEO (20+ yrs in gaming)
+Alex Demchenko – CTO (Web3/GameFi expert)
+Viktoria Pieshaia – CMO (Web3 & gaming community builder)</pre>
+    </div>
+  </div>
+</body>
+</html>
