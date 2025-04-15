@@ -1,166 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Meme Heroes Pitch</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f9f9f9;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-    }
+import { motion } from 'framer-motion';
+import { Card, CardContent } from '@/components/ui/card';
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-    }
+const fadeIn = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.3, duration: 0.6 }
+  })
+};
 
-    h1, h2 {
-      color: #222;
-      margin-top: 1.5rem;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-    }
+const sections = [
+  {
+    title: '🏢 Project Name',
+    content: 'Meme Heroes'
+  },
+  {
+    title: '📱 Telegram Mini-App',
+    content: '@Meme_Heroes_bot'
+  },
+  {
+    title: '⚡️ One-Liner',
+    content: 'A Telegram-first gaming platform turning Meme Tokens into fun and engagement.'
+  },
+  {
+    title: '🕹 About the Project',
+    content: `Meme Heroes is a fast-growing gaming platform built inside Telegram. We combine the viral power of Meme Tokens with addictive mini-games and real crypto rewards.
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      animation-delay: 0.3s;
-    }
+Players compete in quick, skill-based challenges for prizes, while meme token projects get a fresh, gamified way to grow and retain their communities.
 
-    h2 {
-      font-size: 1.3rem;
-      margin-top: 2rem;
-      animation-delay: 0.6s;
-    }
+By working with meme token creators, we bring real utility to their tokens, give holders a reason to stay and play, and create new revenue channels.`
+  },
+  {
+    title: '🌍 Target Markets',
+    content: 'Europe (Ukraine, Russia), Americas (USA, Brazil, Mexico), Asia (India, Indonesia, Vietnam)'
+  },
+  {
+    title: '👥 Team',
+    content: `• Vitalii Korshunov – CEO, 20+ years in gaming, iGaming, and gamification.
+• Alex Demchenko – CTO, 20+ years in digital and Web3/GameFi tech.
+• Viktoria Pieshaia – CMO, 15+ years in gaming/Web3 branding and community.`
+  },
+  {
+    title: '💸 Monetization',
+    content: 'In-app purchases, Subscriptions, Ads, Token utility & distributions.'
+  },
+  {
+    title: '📈 Early Traction',
+    content: `14-day test (0 marketing): 13,974 users
+• 76% converted to active players (10,647)
+• 16% in-app purchase conversion (1,714 paying users)
+• Day 1 Retention: 32.1%, Day 14: 17.3%`
+  },
+  {
+    title: '💰 Funding Goal',
+    content: 'Seeking $200,000 USDT to scale partnerships, grow user base, add games, polish UX, and launch multiplayer + social features.'
+  },
+  {
+    title: '📲 Publishing Plans',
+    content: 'Strong early results. Ready to expand to App Store and Google Play.'
+  }
+];
 
-    p, ul {
-      font-size: 1rem;
-      line-height: 1.6;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-    }
-
-    .highlight {
-      background: #eaf7ff;
-      padding: 1rem;
-      border-left: 4px solid #00b3ff;
-      margin: 1.5rem 0;
-      border-radius: 6px;
-      opacity: 0;
-      animation: fadeIn 1s forwards;
-      animation-delay: 1s;
-    }
-
-    ul {
-      padding-left: 1.2rem;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      background-color: #00b3ff;
-      color: white;
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 6px;
-      margin-top: 2rem;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      background-color: #0088cc;
-      transform: translateY(-5px);
-    }
-
-    .footer {
-      margin-top: 2rem;
-      font-style: italic;
-      color: #666;
-      font-size: 0.95rem;
-    }
-
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.6rem;
-      }
-
-      h2 {
-        font-size: 1.1rem;
-      }
-
-      .container {
-        padding: 1.5rem 1rem;
-      }
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>🚀 Meme Heroes</h1>
-    <p><strong>Telegram-first gaming platform with Meme Token integration</strong></p>
-
-    <h2>🕹 What it is</h2>
-    <p>Casual crypto games inside Telegram, where users play, compete, and earn — using Meme Tokens.</p>
-
-    <h2>🔥 Why it matters</h2>
-    <ul>
-      <li>Turns meme tokens into playable assets</li>
-      <li>Helps token projects engage and monetize their audience</li>
-      <li>Easy, fun, and built for virality inside Telegram</li>
-    </ul>
-
-    <h2>📊 Proof of Traction</h2>
-    <div class="highlight">
-      <p><strong>14-day test (no marketing spend):</strong></p>
-      <ul>
-        <li>13,974 users</li>
-        <li>76% active players</li>
-        <li>16% paying users</li>
-        <li>Day 14 retention: 17.3%</li>
-      </ul>
+export default function PitchDeck() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-[#0d0d0d] to-[#1f1f1f] text-white p-6 grid gap-6">
+      <h1 className="text-4xl font-bold text-center">🚀 Meme Heroes Pitch Deck</h1>
+      {sections.map((section, i) => (
+        <motion.div
+          key={i}
+          custom={i}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeIn}
+        >
+          <Card className="bg-[#2a2a2a] text-white shadow-xl border border-gray-700 rounded-2xl">
+            <CardContent className="p-6">
+              <h2 className="text-xl font-semibold mb-2">{section.title}</h2>
+              <p className="text-base whitespace-pre-line leading-relaxed">{section.content}</p>
+            </CardContent>
+          </Card>
+        </motion.div>
+      ))}
     </div>
-
-    <h2>💰 Revenue</h2>
-    <ul>
-      <li>In-app purchases</li>
-      <li>Tournament subscriptions</li>
-      <li>Advertising</li>
-      <li>Token-based utility</li>
-    </ul>
-
-    <h2>💡 Funding</h2>
-    <p><strong>Seeking $200K</strong> to scale partnerships, launch new games, add multiplayer and grow on App Store / Google Play.</p>
-
-    <a href="https://t.me/Meme_Heroes_bot" class="cta-btn">Start Playing Now</a>
-
-    <div class="footer">
-      Telegram demo: <a href="https://t.me/Meme_Heroes_bot">@Meme_Heroes_bot</a>
-    </div>
-  </div>
-</body>
-</html>
+  );
+}
