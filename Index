@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meme Heroes Pitch</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+
+    h1, h2 {
+      color: #222;
+      margin-top: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 2rem;
+    }
+
+    p, ul {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      background: #eaf7ff;
+      padding: 1rem;
+      border-left: 4px solid #00b3ff;
+      margin: 1.5rem 0;
+      border-radius: 6px;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      font-style: italic;
+      color: #666;
+      font-size: 0.95rem;
+    }
+
+    a {
+      color: #0077cc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      h2 {
+        font-size: 1.1rem;
+      }
+
+      .container {
+        padding: 1.5rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 Meme Heroes</h1>
+    <p><strong>Telegram-first gaming platform with Meme Token integration</strong></p>
+
+    <h2>🕹 What it is</h2>
+    <p>Casual crypto games inside Telegram, where users play, compete, and earn — using Meme Tokens.</p>
+
+    <h2>🔥 Why it matters</h2>
+    <ul>
+      <li>Turns meme tokens into playable assets</li>
+      <li>Helps token projects engage and monetize their audience</li>
+      <li>Easy, fun, and built for virality inside Telegram</li>
+    </ul>
+
+    <h2>📊 Proof of Traction</h2>
+    <div class="highlight">
+      <p><strong>14-day test (no marketing spend):</strong></p>
+      <ul>
+        <li>13,974 users</li>
+        <li>76% active players</li>
+        <li>16% paying users</li>
+        <li>Day 14 retention: 17.3%</li>
+      </ul>
+    </div>
+
+    <h2>💰 Revenue</h2>
+    <ul>
+      <li>In-app purchases</li>
+      <li>Tournament subscriptions</li>
+      <li>Advertising</li>
+      <li>Token-based utility</li>
+    </ul>
+
+    <h2>💡 Funding</h2>
+    <p><strong>Seeking $200K</strong> to scale partnerships, launch new games, add multiplayer and grow on App Store / Google Play.</p>
+
+    <div class="footer">
+      Telegram demo: <a href="https://t.me/Meme_Heroes_bot">@Meme_Heroes_bot</a>
+    </div>
+  </div>
+</body>
+</html>
